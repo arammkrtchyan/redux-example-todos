@@ -1,11 +1,13 @@
 import React from 'react';
 import Footer from "../routes/TodoList/Footer/Footer";
 import VisibleTodoList from "../routes/TodoList/VisibleTodoList";
+import AddTodo from "../routes/TodoList/Todo/AddTodo";
 
 const App = () => {
 
     return (
         <Main>
+            <AddTodo/>
             <VisibleTodoList/>
             <Footer/>
         </Main>

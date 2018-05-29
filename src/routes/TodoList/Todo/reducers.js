@@ -1,11 +1,20 @@
-import {TOGGLE_TODO} from './actions'
+import {ADD_TODO, TOGGLE_TODO} from './actions'
 
-const todos = (state = [{id: 1, text: 'Hello'}], action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
         case TOGGLE_TODO:
             return state.map(todo => {
-                return todo.id = action.id ? {...todo, completed: !todo.completed} : todo
+                return todo.id === action.id ? {...todo, completed: !todo.completed} : todo
             });
+        case ADD_TODO:
+            return [
+                ...state,
+                {
+                    id: action.id,
+                    text: action.text,
+                    completed: false
+                }
+            ];
         default:
             return state;
     }
